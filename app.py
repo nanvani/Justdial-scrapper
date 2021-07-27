@@ -1,3 +1,8 @@
+from bs4 import BeautifulSoup
+import urllib
+import urllib.request
+import requests
+import csv
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
