@@ -4,7 +4,7 @@ import urllib
 import urllib.request
 import requests
 import csv
-from fake_useragent import UserAgent
+
 
 
 
@@ -117,8 +117,7 @@ def run_main(city, query) :
 
 		
 		print(url)
-		ua = UserAgent()
-		print(ua.random)
+		
 		req = urllib.request.Request(url, headers={'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '}) 
 		page = urllib.request.urlopen( req )
 		# page=urllib2.urlopen(url)
