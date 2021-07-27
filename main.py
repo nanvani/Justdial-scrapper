@@ -118,8 +118,8 @@ def run_main(city, query) :
 		
 		print(url)
 		
-		req = urllib.request.Request(url, headers={'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '}) 
-		page = urllib.request.urlopen( req )
+		req =  urllib.request.Request(url, headers={'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '}) 
+		page = urllib.request.urlopen( req, timeout= 10 )
 		# page=urllib2.urlopen(url)
 
 		soup = BeautifulSoup(page.read(), "html.parser")
