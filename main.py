@@ -106,7 +106,7 @@ def run_main(city, query) :
 	#csvwriter.writerow(dict((fn,fn) for fn in fields))
 	while True:
 		# Check if reached end of result
-		if page_number > 1:
+		if page_number > 10:
 			break
 		
 		
@@ -118,9 +118,14 @@ def run_main(city, query) :
 		
 		print(url)
 		
-		req =  urllib.request.Request(url, headers={'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '}) 
-		page = urllib.request.urlopen( req, timeout= 10 )
+		req =  urllib.request.Request(url, headers={'User-Agent' : "Mozilla/5.0 (Windows NT 6.1; Win64; x64)"}) 
+		page = urllib.request.urlopen( req, timeout= 1200)
+
+	
 		# page=urllib2.urlopen(url)
+		
+		# response = requests.get(url)
+		# print(response.headers)
 
 		soup = BeautifulSoup(page.read(), "html.parser")
 		services = soup.find_all('li', {'class': 'cntanr'})
@@ -131,7 +136,7 @@ def run_main(city, query) :
 			# Parse HTML to fetch data     
 			dict_service = {}
 			name = get_name(service_html)
-			print(name)
+			#print(name)
 			phone = get_phone_number(service_html)
 			rating = get_rating(service_html)
 			count = get_rating_count(service_html)

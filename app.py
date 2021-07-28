@@ -31,7 +31,7 @@ def hello_world():
         city = request.form['city']
 
         data = run_main(city, query)
-        print(data)
+        #print(data)
         return render_template('index.html', data = data)
         #todo =(title=title, desc=desc)
         # db.session.add(todo)
